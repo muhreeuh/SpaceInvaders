@@ -153,6 +153,8 @@ MonoBehaviour:
   invasorA: {fileID: 3952232324301895966, guid: 71990e17c29dd6848a1c156bdb491e11,
     type: 3}
   invasorB: {fileID: 986454717797056807, guid: 64c6798c08dd04f96a3928a5cd5ae3e2, type: 3}
+  invasorC: {fileID: 1554182373742738267, guid: a4b0ff4b500981043b1ab8963d97671f,
+    type: 3}
   nInvasores: 7
   xMin: -3
 --- !u!4 &993063012
