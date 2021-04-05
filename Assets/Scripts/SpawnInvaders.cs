@@ -5,16 +5,11 @@ using UnityEngine;
 public class SpawnInvaders : MonoBehaviour
 {
 
-
-    
     [SerializeField]
-    GameObject invasorA;
+    GameObject[] invasores;
 
     [SerializeField]
-    GameObject invasorB;
-
-    [SerializeField]
-    GameObject invasorC;
+    GameObject[] invasoresIndestrutiveis;
 
     [SerializeField]
     int nInvasores = 7;
@@ -22,35 +17,68 @@ public class SpawnInvaders : MonoBehaviour
     [SerializeField]
     float xMin = -3f;
 
-    
+    [SerializeField]
+    float yMin = -0.5f;
 
+    [SerializeField]
+    float xInc = 1f;
 
+    [SerializeField]
+    float yInc = 0.5f;
+
+    [SerializeField]
+    float probabilidadeDeIndestrutivel = 0.15f;
+
+    float speed = 0.5f;
+
+    float direction = 1f;
 
 
     void Awake()
     {
-        /*
-         * "Pega" neste objecto, duplica e coloca-o "naquele" sítio
-         */
+       
 
+        float y = yMin;
         
-            float x = xMin;
-        for( int i = 1; i <= nInvasores; i++ )
-        {
-            GameObject newInvader = Instantiate(invasorA, transform);
-            newInvader.transform.position = new Vector3(x, -0.5f, 0f);
-            GameObject newInvaderA = Instantiate(invasorA, transform);
-            newInvaderA.transform.position = new Vector3(x, 0f, 0f);
-            GameObject newInvaderB = Instantiate(invasorB, transform);
-            newInvaderB.transform.position = new Vector3(x, 0.5f, 0f);
-            GameObject newInvaderBB = Instantiate(invasorB, transform);
-            newInvaderBB.transform.position = new Vector3(x, 1f, 0f);
-            GameObject newInvaderC = Instantiate(invasorC, transform);
-            newInvaderC.transform.position = new Vector3(x, 1.5f, 0f);
-            x += 1f;
 
-            
-            
+        for(int line = 0; line < invasores.Length; line++)
+        {
+           float x = xMin; 
+            for (int i = 1; i <= nInvasores; i++)
+                {
+                    if(Random.value <= probabilidadeDeIndestrutivel)
+                {
+                    GameObject newInvader = Instantiate(invasoresIndestrutiveis[line], transform);
+                    newInvader.transform.position = new Vector3(x, y, 0f);
+                }
+                    else
+                {
+                      GameObject newInvader = Instantiate(invasores[line], transform);
+                      newInvader.transform.position = new Vector3(x, y, 0f); 
+                }
+                    x += xInc;
+                }
+        
+                y += yInc;   
+            }
+ 
+         //* mais aleatoridade no disparo do inimigo (intervalo)
+         //* movimentação dos inimigos - 
+               
         }
+    void Update()
+    {
+            transform.position += Time.deltaTime * speed * Vector3.right * direction;
+
+            if (transform.position.x >= 0.5)
+            {
+                direction *= -1f;
+            }
+            if (transform.position.x <= -0.5)
+            {
+                direction *= -1f;
+            }
+        
     }
-}
+
+    }

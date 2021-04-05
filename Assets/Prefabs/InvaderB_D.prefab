@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 7303504528903010219}
   - component: {fileID: 1741484294730350831}
   m_Layer: 8
-  m_Name: InvaderB
-  m_TagString: "Destrut\xEDvel"
+  m_Name: InvaderB_D
+  m_TagString: "Indestrut\xEDvel"
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a79bc0dc666eb43db8a269cf7f12b2e9, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6698113, g: 0.66371673, b: 0.32858667, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
